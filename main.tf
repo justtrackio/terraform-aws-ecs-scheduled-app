@@ -101,7 +101,7 @@ module "container_definition_fluentbit" {
     logDriver = "awslogs"
     options = {
       awslogs-group  = try(aws_cloudwatch_log_group.default[0].name, ""),
-      awslogs-region = var.region
+      awslogs-region = var.aws_region
     }
   }
 
