@@ -197,7 +197,7 @@ variable "application_label_order" {
     EOT
 }
 
-variable "region" {
+variable "aws_region" {
   type        = string
   description = "The AWS region"
   default     = null
