@@ -132,19 +132,31 @@ variable "port_mappings" {
   default     = []
 }
 
-variable "container_environment" {
-  type = list(object({
-    name  = string
-    value = string
-  }))
-  description = "The environment variables to pass to the container. This is a list of maps"
-  default     = []
-}
-
-variable "map_container_environment" {
+variable "container_map_environment" {
   type        = map(string)
   description = "The environment variables to pass to the container. This is a map of string: {key: value}. `environment` overrides `map_environment`"
   default     = null
+}
+
+variable "log_router_map_environment" {
+  type        = map(string)
+  description = "The environment variables to pass to the container. This is a map of string: {key: value}. `environment` overrides `map_environment`"
+  default     = null
+}
+
+variable "log_router_type" {
+  type        = string
+  description = "The log router type to use"
+  default     = "fluentbit"
+}
+
+variable "log_router_options" {
+  type        = map(string)
+  description = "The log router options to use"
+  default = {
+    config-file-type  = "file",
+    config-file-value = "/fluent-bit/etc/extra.conf"
+  }
 }
 
 variable "secrets" {

@@ -7,7 +7,6 @@ locals {
   task_memory           = var.task_memory != null ? local.total_memory > var.task_memory ? local.total_memory : var.task_memory : null
   image_tag             = var.app_image_tag == null ? data.aws_ssm_parameter.container_tag[0].value : var.app_image_tag
   container_definitions = "[${module.container_definition.json_map_encoded}, ${module.container_definition_fluentbit.json_map_encoded}]"
-  application           = join(module.this.delimiter, concat([module.this.name], module.this.attributes))
   task_policies         = setunion(var.task_policy_arns, local.default_policies)
   default_policies = [
     "arn:aws:iam::aws:policy/AmazonSSMReadOnlyAccess",
@@ -71,8 +70,7 @@ module "container_definition" {
   start_timeout                = var.container_start_timeout
   stop_timeout                 = var.container_stop_timeout
   healthcheck                  = local.healthcheck
-  environment                  = var.container_environment
-  map_environment              = var.map_container_environment
+  map_environment              = var.container_map_environment
   port_mappings                = local.port_mappings
   secrets                      = var.secrets
   map_secrets                  = var.map_secrets
@@ -95,11 +93,8 @@ module "container_definition_fluentbit" {
   container_cpu                = var.log_router_container_cpu
   container_memory_reservation = var.log_router_container_memory_reservation
   firelens_configuration = {
-    type = "fluentbit"
-    options = {
-      config-file-type  = "file",
-      config-file-value = "/fluent-bit/etc/extra.conf"
-    }
+    type    = var.log_router_type
+    options = var.log_router_options
   }
 
   log_configuration = {
@@ -110,12 +105,7 @@ module "container_definition_fluentbit" {
     }
   }
 
-  map_environment = {
-    ENVIRONMENT = module.this.environment
-    PROJECT     = module.this.namespace
-    FAMILY      = module.this.stage
-    APPLICATION = local.application
-  }
+  map_environment = var.log_router_map_environment
 }
 
 module "service_task" {
