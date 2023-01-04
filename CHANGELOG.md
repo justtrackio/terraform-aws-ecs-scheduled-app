@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.1.1](https://github.com/justtrackio/terraform-aws-ecs-scheduled-app/compare/v1.1.0...v1.1.1) (2023-01-04)
+
+
+### Bug Fixes
+
+* Changed region to aws_region ([#3](https://github.com/justtrackio/terraform-aws-ecs-scheduled-app/issues/3)) ([d9fd0c6](https://github.com/justtrackio/terraform-aws-ecs-scheduled-app/commit/d9fd0c6945dfec7b1b3e36934b97444bfcd323bf))
+
 ## [1.1.0](https://github.com/justtrackio/terraform-aws-ecs-scheduled-app/compare/v1.0.0...v1.1.0) (2023-01-04)
 
 
