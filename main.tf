@@ -42,12 +42,13 @@ locals {
   } : var.healthcheck
 }
 
-module "application_label" {
+module "ecs_label" {
   source  = "cloudposse/label/null"
   version = "0.25.0"
 
-  context     = module.this.context
-  label_order = var.application_label_order
+  label_order = var.label_orders.ecs
+
+  context = module.this.context
 }
 
 resource "aws_cloudwatch_log_group" "default" {
@@ -62,7 +63,7 @@ module "container_definition" {
   source  = "cloudposse/ecs-container-definition/aws"
   version = "0.58.1"
 
-  container_name               = module.application_label.id
+  container_name               = module.ecs_label.id
   container_image              = "${var.app_image_repository}:${local.image_tag}"
   container_memory             = var.container_memory
   container_memory_reservation = var.container_memory_reservation
@@ -109,7 +110,8 @@ module "container_definition_fluentbit" {
 }
 
 module "service_task" {
-  source = "github.com/justtrackio/terraform-aws-ecs-scheduled-task?ref=v1.0.0"
+  source  = "justtrackio/ecs-scheduled-task/aws"
+  version = "1.1.0"
 
   container_definition_json = local.container_definitions
   task_count                = var.task_count
@@ -122,5 +124,6 @@ module "service_task" {
   schedule_expression       = var.schedule_expression
   is_enabled                = var.is_enabled
 
-  context = module.this.context
+  label_orders = var.label_orders
+  context      = module.this.context
 }
