@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.2.0](https://github.com/justtrackio/terraform-aws-ecs-scheduled-app/compare/v1.1.1...v1.2.0) (2023-01-19)
+
+
+### Features
+
+* add label orders variable ([#12](https://github.com/justtrackio/terraform-aws-ecs-scheduled-app/issues/12)) ([261deec](https://github.com/justtrackio/terraform-aws-ecs-scheduled-app/commit/261deec4d4292558c5c9a9933c217a84ec6c978c))
+
 ## [1.1.1](https://github.com/justtrackio/terraform-aws-ecs-scheduled-app/compare/v1.1.0...v1.1.1) (2023-01-04)
 
 
