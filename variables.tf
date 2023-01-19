@@ -187,16 +187,6 @@ variable "healthcheck" {
   default     = null
 }
 
-variable "application_label_order" {
-  type        = list(string)
-  default     = null
-  description = <<-EOT
-    The order in which the labels (ID elements) appear in the `id`.
-    Defaults to ["namespace", "environment", "stage", "name", "attributes"].
-    You can omit any of the 6 labels ("tenant" is the 6th), but at least one must be present.
-    EOT
-}
-
 variable "aws_region" {
   type        = string
   description = "The AWS region"
@@ -248,4 +238,15 @@ variable "is_enabled" {
   type        = bool
   description = "Whether the rule should be enabled."
   default     = true
+}
+
+variable "label_orders" {
+  type = object({
+    cloudwatch = optional(list(string)),
+    ecs        = optional(list(string)),
+    iam        = optional(list(string)),
+    ssm        = optional(list(string))
+  })
+  default     = {}
+  description = "Overrides the `labels_order` for the different labels to modify ID elements appear in the `id`"
 }
