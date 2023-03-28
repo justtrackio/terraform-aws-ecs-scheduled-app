@@ -1,3 +1,10 @@
+## [1.3.0](https://github.com/justtrackio/terraform-aws-ecs-scheduled-app/compare/v1.2.0...v1.3.0) (2023-03-28)
+
+
+### Features
+
+* let users configure FARGATE as launchtype; ([#18](https://github.com/justtrackio/terraform-aws-ecs-scheduled-app/issues/18)) ([fb4a243](https://github.com/justtrackio/terraform-aws-ecs-scheduled-app/commit/fb4a2434ff01972e3fe01b90ab6ce2a14c5a5383))
+
 # Changelog
 
 All notable changes to this project will be documented in this file.
