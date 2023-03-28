@@ -64,6 +64,24 @@ variable "log_router_image_tag" {
   default     = null
 }
 
+variable "launch_type" {
+  type        = string
+  description = "The launch type on which to run your service. Valid values are `EC2` and `FARGATE`"
+  default     = "EC2"
+}
+
+variable "network_mode" {
+  type        = string
+  description = "The network mode to use for the task. This is required to be `awsvpc` for `FARGATE` `launch_type` or `null` for `EC2` `launch_type`"
+  default     = null
+}
+
+variable "subnet_ids" {
+  type        = list(string)
+  description = "A list of subnet IDs to associate with the task or service"
+  default     = []
+}
+
 variable "container_cpu" {
   type        = number
   description = "The vCPU setting to control cpu limits of container. (If FARGATE launch type is used below, this must be a supported vCPU size from the table here: https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-cpu-memory-error.html)"

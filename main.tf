@@ -16,17 +16,17 @@ locals {
   port_mappings = length(var.port_mappings) == 0 ? [
     {
       containerPort = var.port_gateway
-      hostPort      = 0
+      hostPort      = var.network_mode == "awsvpc" ? var.port_gateway : 0
       protocol      = "tcp"
     },
     {
       containerPort = var.port_metadata
-      hostPort      = 0
+      hostPort      = var.network_mode == "awsvpc" ? var.port_metadata : 0
       protocol      = "tcp"
     },
     {
       containerPort = var.port_profiling
-      hostPort      = 0
+      hostPort      = var.network_mode == "awsvpc" ? var.port_profiling : 0
       protocol      = "tcp"
     },
   ] : var.port_mappings
@@ -101,8 +101,9 @@ module "container_definition_fluentbit" {
   log_configuration = {
     logDriver = "awslogs"
     options = {
-      awslogs-group  = try(aws_cloudwatch_log_group.default[0].name, ""),
-      awslogs-region = var.aws_region
+      awslogs-group         = try(aws_cloudwatch_log_group.default[0].name, ""),
+      awslogs-region        = var.aws_region
+      awslogs-stream-prefix = module.this.id
     }
   }
 
@@ -111,7 +112,7 @@ module "container_definition_fluentbit" {
 
 module "service_task" {
   source  = "justtrackio/ecs-scheduled-task/aws"
-  version = "1.1.0"
+  version = "1.2.0"
 
   container_definition_json = local.container_definitions
   task_count                = var.task_count
@@ -123,7 +124,9 @@ module "service_task" {
   cloudwatch_event_role_arn = var.cloudwatch_event_policy_arns
   schedule_expression       = var.schedule_expression
   is_enabled                = var.is_enabled
-
-  label_orders = var.label_orders
-  context      = module.this.context
+  launch_type               = var.launch_type
+  subnet_ids                = var.subnet_ids
+  network_mode              = var.network_mode
+  label_orders              = var.label_orders
+  context                   = module.this.context
 }
