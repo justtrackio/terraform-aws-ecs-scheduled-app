@@ -1,3 +1,10 @@
+## [1.4.0](https://github.com/justtrackio/terraform-aws-ecs-scheduled-app/compare/v1.3.0...v1.4.0) (2023-03-29)
+
+
+### Features
+
+* allow users to set security groups on scheduled apps; ([#19](https://github.com/justtrackio/terraform-aws-ecs-scheduled-app/issues/19)) ([ac3677d](https://github.com/justtrackio/terraform-aws-ecs-scheduled-app/commit/ac3677d8d9fa9cb3fbe60f86713d1d543c845aed))
+
 ## [1.3.0](https://github.com/justtrackio/terraform-aws-ecs-scheduled-app/compare/v1.2.0...v1.3.0) (2023-03-28)
 
 
