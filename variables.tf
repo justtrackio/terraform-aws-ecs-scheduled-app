@@ -82,6 +82,12 @@ variable "subnet_ids" {
   default     = []
 }
 
+variable "security_groups" {
+  type        = list(string)
+  description = "The security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used."
+  default     = []
+}
+
 variable "container_cpu" {
   type        = number
   description = "The vCPU setting to control cpu limits of container. (If FARGATE launch type is used below, this must be a supported vCPU size from the table here: https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-cpu-memory-error.html)"

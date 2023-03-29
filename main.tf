@@ -112,7 +112,7 @@ module "container_definition_fluentbit" {
 
 module "service_task" {
   source  = "justtrackio/ecs-scheduled-task/aws"
-  version = "1.2.0"
+  version = "1.3.0"
 
   container_definition_json = local.container_definitions
   task_count                = var.task_count
@@ -126,6 +126,7 @@ module "service_task" {
   is_enabled                = var.is_enabled
   launch_type               = var.launch_type
   subnet_ids                = var.subnet_ids
+  security_groups           = var.security_groups
   network_mode              = var.network_mode
   label_orders              = var.label_orders
   context                   = module.this.context
