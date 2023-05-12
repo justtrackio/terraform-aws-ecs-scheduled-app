@@ -21,9 +21,9 @@ Terraform module which creates a scheduled ecs app
 |------|--------|---------|
 | <a name="module_container_definition"></a> [container\_definition](#module\_container\_definition) | cloudposse/ecs-container-definition/aws | 0.58.1 |
 | <a name="module_container_definition_fluentbit"></a> [container\_definition\_fluentbit](#module\_container\_definition\_fluentbit) | cloudposse/ecs-container-definition/aws | 0.58.1 |
-| <a name="module_ecs_label"></a> [ecs\_label](#module\_ecs\_label) | cloudposse/label/null | 0.25.0 |
-| <a name="module_service_task"></a> [service\_task](#module\_service\_task) | justtrackio/ecs-scheduled-task/aws | 1.3.0 |
-| <a name="module_ssm_label"></a> [ssm\_label](#module\_ssm\_label) | cloudposse/label/null | 0.25.0 |
+| <a name="module_ecs_label"></a> [ecs\_label](#module\_ecs\_label) | justtrackio/label/null | 0.26.0 |
+| <a name="module_service_task"></a> [service\_task](#module\_service\_task) | justtrackio/ecs-scheduled-task/aws | 1.3.1 |
+| <a name="module_ssm_label"></a> [ssm\_label](#module\_ssm\_label) | justtrackio/label/null | 0.26.0 |
 | <a name="module_this"></a> [this](#module\_this) | justtrackio/label/null | 0.26.0 |
 
 ## Resources
