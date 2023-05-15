@@ -1,3 +1,10 @@
+## [1.5.0](https://github.com/justtrackio/terraform-aws-ecs-scheduled-app/compare/v1.4.0...v1.5.0) (2023-05-15)
+
+
+### Features
+
+* update_context_versions_variables_outputs ([#23](https://github.com/justtrackio/terraform-aws-ecs-scheduled-app/issues/23)) ([e0c603b](https://github.com/justtrackio/terraform-aws-ecs-scheduled-app/commit/e0c603be6f2950271001063b30726226d138f3c4))
+
 ## [1.4.0](https://github.com/justtrackio/terraform-aws-ecs-scheduled-app/compare/v1.3.0...v1.4.0) (2023-03-29)
 
 
