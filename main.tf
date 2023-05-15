@@ -43,8 +43,8 @@ locals {
 }
 
 module "ecs_label" {
-  source  = "cloudposse/label/null"
-  version = "0.25.0"
+  source  = "justtrackio/label/null"
+  version = "0.26.0"
 
   label_order = var.label_orders.ecs
 
@@ -102,7 +102,7 @@ module "container_definition_fluentbit" {
     logDriver = "awslogs"
     options = {
       awslogs-group         = try(aws_cloudwatch_log_group.default[0].name, ""),
-      awslogs-region        = var.aws_region
+      awslogs-region        = module.this.aws_region
       awslogs-stream-prefix = module.this.id
     }
   }
@@ -112,7 +112,7 @@ module "container_definition_fluentbit" {
 
 module "service_task" {
   source  = "justtrackio/ecs-scheduled-task/aws"
-  version = "1.3.0"
+  version = "1.3.1"
 
   container_definition_json = local.container_definitions
   task_count                = var.task_count
