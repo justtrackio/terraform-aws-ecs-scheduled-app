@@ -1,3 +1,10 @@
+## [1.5.1](https://github.com/justtrackio/terraform-aws-ecs-scheduled-app/compare/v1.5.0...v1.5.1) (2023-11-01)
+
+
+### Bug Fixes
+
+* aws managed policy CloudWatchFullAccess becomes CloudWatchFullAc… ([#38](https://github.com/justtrackio/terraform-aws-ecs-scheduled-app/issues/38)) ([6df8762](https://github.com/justtrackio/terraform-aws-ecs-scheduled-app/commit/6df87623adcbf75505934b7ef4536a5d216997ce))
+
 ## [1.5.0](https://github.com/justtrackio/terraform-aws-ecs-scheduled-app/compare/v1.4.0...v1.5.0) (2023-05-15)
 
 
