@@ -10,7 +10,7 @@ locals {
   task_policies         = setunion(var.task_policy_arns, local.default_policies)
   default_policies = [
     "arn:aws:iam::aws:policy/AmazonSSMReadOnlyAccess",
-    "arn:aws:iam::aws:policy/CloudWatchFullAccess",
+    "arn:aws:iam::aws:policy/CloudWatchFullAccessV2",
     "arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly",
   ]
   port_mappings = length(var.port_mappings) == 0 ? [
