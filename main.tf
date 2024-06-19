@@ -83,6 +83,11 @@ module "container_definition" {
     options       = {}
     secretOptions = null
   }
+
+  container_depends_on = [{
+    condition     = "START"
+    containerName = "log_router"
+  }]
 }
 
 module "container_definition_fluentbit" {
@@ -108,6 +113,9 @@ module "container_definition_fluentbit" {
   }
 
   map_environment = var.log_router_map_environment
+
+  essential    = var.log_router_essential
+  stop_timeout = var.log_router_stop_timeout
 }
 
 module "service_task" {
