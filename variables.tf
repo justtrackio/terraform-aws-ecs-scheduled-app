@@ -122,6 +122,12 @@ variable "log_router_container_memory_reservation" {
   default     = 64
 }
 
+variable "log_router_essential" {
+  type        = bool
+  description = "Determines whether all other containers in a task are stopped, if this container fails or stops for any reason. Due to how Terraform type casts booleans in json it is required to double quote this value"
+  default     = false
+}
+
 variable "log_router_image_repository" {
   type        = string
   description = "Container registry repository url"
@@ -147,6 +153,12 @@ variable "log_router_options" {
     config-file-type  = "file",
     config-file-value = "/fluent-bit/etc/extra.conf"
   }
+}
+
+variable "log_router_stop_timeout" {
+  type        = number
+  description = "Time duration (in seconds) to wait before the container is forcefully killed if it doesn't exit normally on its own"
+  default     = 60
 }
 
 variable "log_router_type" {
