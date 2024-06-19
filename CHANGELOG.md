@@ -1,3 +1,10 @@
+## [1.6.0](https://github.com/justtrackio/terraform-aws-ecs-scheduled-app/compare/v1.5.1...v1.6.0) (2024-06-19)
+
+
+### Features
+
+* add log router dependency ([#59](https://github.com/justtrackio/terraform-aws-ecs-scheduled-app/issues/59)) ([fca088b](https://github.com/justtrackio/terraform-aws-ecs-scheduled-app/commit/fca088b9edd7a57b6055c4565912483fafbcdfb1))
+
 ## [1.5.1](https://github.com/justtrackio/terraform-aws-ecs-scheduled-app/compare/v1.5.0...v1.5.1) (2023-11-01)
 
 
