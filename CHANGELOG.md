@@ -1,3 +1,10 @@
+## [1.7.0](https://github.com/justtrackio/terraform-aws-ecs-scheduled-app/compare/v1.6.0...v1.7.0) (2024-10-11)
+
+
+### Features
+
+* skip faulty version for aws provider ([9e398dc](https://github.com/justtrackio/terraform-aws-ecs-scheduled-app/commit/9e398dc9df6afbdeb288b1f85e3dd092a461bd8c))
+
 ## [1.6.0](https://github.com/justtrackio/terraform-aws-ecs-scheduled-app/compare/v1.5.1...v1.6.0) (2024-06-19)
 
 
